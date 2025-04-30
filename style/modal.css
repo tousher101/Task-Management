@@ -1,0 +1,70 @@
+.modal-task-add, .Add-board-modal, .delete-confim-modal{
+    position: fixed;
+   top: 0;
+   left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0,0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    display: flex;
+    display: none;
+
+
+
+    
+}
+
+.modal-elam, .add-board-elm, .confirm-delete{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 24, 24);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 600px;
+    text-align: center;
+    color: white;
+
+}
+.font-modal, .modal-title{
+    font-size: 2.5rem;
+}
+.input-elm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-input-newtask, .input-board-name{
+    height: 50px;
+    width: 350px;
+    padding: 0px 10px 0px 10px;
+    font-size: 1.5rem;
+
+}
+.task-status-modal{
+    height: 50px;
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+.btn-modal, .submit-new-board, .cancel-new-board, .yes-confirm, .no-confirm{
+   
+    height: 50px;
+    width: 150px;
+    margin-left: 10px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgba(0,0, 0, 0.5);
+    margin-top: 15px;
+   
+}
+.btn-elm-modal{
+    margin-top: 30px;
+}
+h2{
+    font-size: clamp(.8rem, 4vw, 1.2rem);
+}
+

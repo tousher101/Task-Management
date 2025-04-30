@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+
+  
+}
+body{
+    background-color: rgb(133, 68, 194);
+    color: beige;
+    width: 100vh,100dvh;
+    overflow: hidden;
+}
+.header-section{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    
+}
+
+
+h1{
+    font-size : clamp(2rem, 3vw, 4rem);
+    margin-left: 20px;
+}
+h2{
+    font-size: clamp(1rem, 1vw, 3rem);
+    margin-left: 20px;
+}
+.side-bar{
+    height: 100vh;
+    width: 250px;
+    position:fixed;
+     top: 0;
+     right: 0;
+    text-align: center;
+    background-color: rgb(191, 22, 233);
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+   visibility: hidden;
+   z-index: 2;
+}
+.side-bar.show{
+    transform: translateX(0); 
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-side-bar-eml{
+    margin-top: 130px;
+}
+.user-img{
+    height: 100%;
+    width: 100%;
+    color: white;
+    
+}
+.user-logo{
+    background: transparent;
+    height: clamp(3rem, 5vw, 5rem);
+    width: clamp( 3rem, 5vw, 5rem);
+    border: none;
+    margin-bottom: 10px;
+    
+    
+}
+.user-profile{
+display: flex;
+ flex-direction: column;
+z-index: 3;
+margin-right: 80px;
+margin-top: 15px;
+font-size: clamp(.5rem, 4vw, 1rem);
+justify-content: center;
+align-items: center;
+
+ 
+}
+.board-name{
+    font-size: 1.8rem;
+    margin-top: 50px;
+    color: white;
+}
+.add-board {
+    height: 60px;
+    width: 150px;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgba(0,0, 0, 0.5);
+    transition: opacity, 1s;
+}
+.add-board:hover{
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.filter-task{
+height: 40px;
+width: 150px;
+padding-left: 10px;
+margin-top: 50px;
+font-size: 1.2rem;
+border-radius: 10px;
+border: none;
+margin-bottom: 15px;
+
+}
+.select-option{
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+}
+.Delete-Board, .undo-btn{
+    padding: 10px 20px 10px 20px;
+   margin-left: 10px;
+   font-size: clamp(0.8rem, 4vw, 1rem);
+   border-radius: 10px;
+   border: none;
+}
+.btn-elm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.Board-list{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+   
+
+}
+.list-board{
+    padding: 10px 20px 10px 20px;
+    font-size: clamp(0.8rem, 4vw, 1rem);
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+}
+.board-list-name{
+    margin-top: 50px;
+    font-size: clamp(0.8rem, 4vw, 1rem);
+}
+@media(max-width: 620px){
+   
+    .header-section{
+       display: grid;
+       grid-template-columns: 3fr 1fr;
+       position: relative;
+       width: 100%;
+    }
+    .user-profile{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: 10px;
+        margin-top: 5px;
+        font-size: clamp(.5rem, 1vw, 1rem);
+    }
+    h1{
+        font-size : clamp(1.3rem, 5vw, 2.5rem);
+       margin-left: 5px;
+    }
+    h2{
+        font-size: clamp(0.7rem, 1vw, 3rem);
+        margin-left: 5px;
+       
+    }
+    .user-logo{
+        background: transparent;
+        height: clamp(2rem, 4vw, 5rem);
+        width: clamp( 2rem, 4vw, 5rem);
+        border: none;
+        margin-bottom: 10px;
+   
+    }
+    .side-bar{
+        width: 180px;
+    }
+}
