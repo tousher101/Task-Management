@@ -115,7 +115,7 @@ margin-bottom: 15px;
     border: none;
     font-size: 1rem;
 }
-.Delete-Board, .undo-btn{
+.Delete-Board, .undo-btn, .filter-btn, .download-btn{
     padding: 10px 20px 10px 20px;
    margin-left: 10px;
    font-size: clamp(0.8rem, 4vw, 1rem);
@@ -148,6 +148,16 @@ margin-bottom: 15px;
 .board-list-name{
     margin-top: 50px;
     font-size: clamp(0.8rem, 4vw, 1rem);
+}
+
+.download-Elm{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.filterElm{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
 }
 @media(max-width: 620px){
    

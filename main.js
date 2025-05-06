@@ -18,6 +18,107 @@ let board= JSON.parse(localStorage.getItem('kaj')) ||  [{
     }]
 }]
 
+const inputData = document.querySelector('.filterElm');
+
+
+  function downloadFilteredCSV() {
+    const targetDate = inputData.value;
+    if (!targetDate) {
+      alert('Please select a date!');
+      return;
+    }
+
+    const board = JSON.parse(localStorage.getItem('kaj')) || [];
+    const filtered = board.filter(item => item.name === targetDate);
+
+    if (filtered.length === 0) {
+      alert('No data found for this date!');
+      return;
+    }
+
+    const headers = Object.keys(filtered[0]).join(',');
+    const rows = filtered.map(obj => Object.values(obj).join(','));
+    const csvContent = [headers, ...rows].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `sell-data-${targetDate}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+
+
+
+
+
+
+
+/* This One Direct Download or Selected Data Download System Not Filterd
+const data = [
+  { date: '2025-05-05', product: 'Shampoo', quantity: 2, price: 120 },
+  { date: '2025-05-05', product: 'Soap', quantity: 5, price: 200 },
+  { date: '2025-05-05', product: 'Toothpaste', quantity: 3, price: 150 }
+];
+
+// Function to convert JSON to CSV and trigger download
+function downloadCSV(data) {
+  const headers = Object.keys(data[0]).join(',');
+  const rows = data.map(obj => Object.values(obj).join(','));
+  const csvContent = [headers, ...rows].join('\n');
+
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'sell-report.csv';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Call this function on button click or any event
+downloadCSV(data);*/
+
+
+
+
+    /* this jsn Method Download system
+    const rowData  = localStorage.getItem('kaj');
+    if(!rowData){return alert('No Data Available')}
+    const filted=  board.filter(b=> b.name === inputData.value);
+    if (filted.length === 0) return alert('No Data Available This Name')
+        const blob = new Blob([JSON.stringify(filted, null, 2)], {type: 'application/json'})
+
+    const url= URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `Task Board-${inputData}.json`;
+    link.click();
+    URL.revokeObjectURL(url);*/
+
+
+
+document.querySelector('.download-btn').addEventListener('click', ()=>{
+    downloadFilteredCSV();
+    inputData.value = '';
+})
+
+function filterBoard(board){
+  const filted=  board.filter(b=> b.name === inputData.value)
+  return filted
+}
+document.querySelector('.filter-btn').addEventListener('click', ()=>{
+  const filtered =   filterBoard(board);
+   if(filtered.length>0){
+    renderBoard(board.indexOf(filtered[0]))
+   } else alert('Board Not found')
+
+   inputData.value = '';
+    
+})
+
 
 function boardDisplay(){
     
@@ -235,6 +336,7 @@ function renderBoard(index){
 document.querySelector('.main-section').innerHTML = newBoardHTML;
 document.querySelector('.board-name').innerHTML = ` ${bro.name}`
 
+
 saveStoarge();
 addTask(index);
 displayTask(index);
@@ -242,22 +344,30 @@ displayTask(index);
 }
 
 function showSideBar(){
+    
     const sideElm = document.querySelector('.Board-list');
     sideElm.innerHTML = '';
-    board.forEach((b,idx)=>{
+    const latestBoard = board.slice(-3);
+    latestBoard.forEach((b,idx)=>{
+        if(idx>=3){idx -1; return}
         const btnEml = document.createElement('button');
         btnEml.classList.add('list-board');
         btnEml.innerHTML = b.name;
         btnEml.addEventListener('click',()=>{
-            renderBoard(idx);
+            renderBoard(board.length - 3 + idx);
         });
         sideElm.appendChild(btnEml);
+       
+        
     }) 
 }
 showSideBar();
+
+
+
+
 let currentDeletedBoard = null;
 let currentDeletedIndex = null;
-
 function deleteBoard(){
     const currentIndex = JSON.parse( localStorage.getItem('currentBoard'));
     const newIndex = currentIndex>0 ?currentIndex-1 : 0;
@@ -351,6 +461,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
   renderBoard(currentIndex);
   showSideBar();
   boardDisplay();
+
  
  
 })
