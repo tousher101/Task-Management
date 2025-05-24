@@ -23,8 +23,8 @@ Fully Customized task management App crated by JavaScript and HTML and responsiv
 Not Available.
 
 ## ScreenShot
-[Task-Managent-App] (./assets/1.JPG)
-[Task-Managent-App] (./assets/2.JPG)
+![Task Managent App](./assets/1.JPG)
+![Task Managent App](./assets/2.JPG)
 
 ## Personal Note
 Git commit history is not available for this project because it was developed on a low-end system.
