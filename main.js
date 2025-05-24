@@ -158,6 +158,63 @@ document.querySelector('.cancel-new-board').addEventListener('click',()=>{
 }
 
 
+function renderBoard(index){
+    if (index === null || !board[index]) return;
+    const bro = board[index];
+
+    localStorage.setItem('currentBoard',index);
+    
+ const newBoardHTML=
+   
+    `   
+    <div class="colum" >
+    <div class="elm-wrapper">
+            <span class="col-headre"> TO-DO</span>
+            <div class="js-todo-task js-drag-task add-new-todo-${index}"></div>
+    </div>
+                
+                    
+                  
+                <button class="new-board-btn add-new-task-${index}"> Add Task+ </button>
+        </div>
+            
+
+        <div class="colum">
+        <div class="elm-wrapper">
+            <span class="col-headre"> In Progress</span>
+            <div class="js-progress-task js-drag-task add-new-progress-${index}"></div>
+        </div>
+                
+                   
+                    <button class="new-board-btn add-new-task-${index}"> Add Task+ </button>
+        </div>
+            
+             
+
+        <div class="colum">
+        <div class="elm-wrapper">
+            <span class="col-headre"> Done </span>
+            <div class="js-done-task js-drag-task add-new-done-${index}"></div>
+
+        </div>
+                
+                  
+            <button class="new-board-btn add-new-task-${index}"> Add Task+ </button>  
+        </div>
+           
+    
+    `
+document.querySelector('.main-section').innerHTML = newBoardHTML;
+document.querySelector('.board-name').innerHTML = ` ${bro.name}`
+
+
+saveStoarge();
+addTask(index);
+displayTask(index);
+
+}
+
+
 
 function displayTask(index){
     const todoTask = document.querySelector(`.add-new-todo-${index}`);
@@ -287,61 +344,6 @@ function saveStoarge(){
 
 
 
-function renderBoard(index){
-    if (index === null || !board[index]) return;
-    const bro = board[index];
-
-    localStorage.setItem('currentBoard',index);
-    
- const newBoardHTML=
-   
-    `   
-    <div class="colum" >
-    <div class="elm-wrapper">
-            <span class="col-headre"> TO-DO</span>
-            <div class="js-todo-task js-drag-task add-new-todo-${index}"></div>
-    </div>
-                
-                    
-                  
-                <button class="new-board-btn add-new-task-${index}"> Add Task+ </button>
-        </div>
-            
-
-        <div class="colum">
-        <div class="elm-wrapper">
-            <span class="col-headre"> In Progress</span>
-            <div class="js-progress-task js-drag-task add-new-progress-${index}"></div>
-        </div>
-                
-                   
-                    <button class="new-board-btn add-new-task-${index}"> Add Task+ </button>
-        </div>
-            
-             
-
-        <div class="colum">
-        <div class="elm-wrapper">
-            <span class="col-headre"> Done </span>
-            <div class="js-done-task js-drag-task add-new-done-${index}"></div>
-
-        </div>
-                
-                  
-            <button class="new-board-btn add-new-task-${index}"> Add Task+ </button>  
-        </div>
-           
-    
-    `
-document.querySelector('.main-section').innerHTML = newBoardHTML;
-document.querySelector('.board-name').innerHTML = ` ${bro.name}`
-
-
-saveStoarge();
-addTask(index);
-displayTask(index);
-
-}
 
 function showSideBar(){
     
@@ -354,7 +356,7 @@ function showSideBar(){
         btnEml.classList.add('list-board');
         btnEml.innerHTML = b.name;
         btnEml.addEventListener('click',()=>{
-            renderBoard(board.length - 3 + idx);
+        renderBoard(board.length - 3 + idx);
         });
         sideElm.appendChild(btnEml);
        
