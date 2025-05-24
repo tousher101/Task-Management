@@ -1,7 +1,7 @@
 # Task ManageMent App - Manage Your Task With Finger Tip
 Fully Customized task management App crated by JavaScript and HTML and responsive UI using CSS.
 
-##features
+## Features
 - Add Board With Modal.
 - Add Task With Modal.
 - Add Task in 3 Stage ( TO-Do, In Progress, Done)
