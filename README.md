@@ -2,16 +2,16 @@
 Fully Customized task management App crated by JavaScript and HTML and responsive UI using CSS.
 
 ##features
--> Add Board With Modal.
--> Add Task With Modal.
--> Add Task in 3 Stage ( TO-Do, In Progress, Done)
--> CURD-(Create, Update, Read, Delete).
--> Side Bar.
--> Display board name in sidebar. just click and it will display on board.
--> Delete Board.
--> Filter Board.
--> Undo Board.
--> Download Your Task.
+- Add Board With Modal.
+- Add Task With Modal.
+- Add Task in 3 Stage ( TO-Do, In Progress, Done)
+- CURD-(Create, Update, Read, Delete).
+- Side Bar.
+- Display board name in sidebar. just click and it will display on board.
+- Delete Board.
+- Filter Board.
+- Undo Board.
+- Download Your Task.
 
 ## 🛠 Tech Stack
 
